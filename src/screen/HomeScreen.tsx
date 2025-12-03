@@ -11,7 +11,7 @@ export class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <DiceLayout/>
+        <DiceLayout width='90%' height='20%' oneLine = {false} />
       </View>
     );
   }
