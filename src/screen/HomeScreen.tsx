@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import { DiceWidget } from '../module/dice/DiceWidget';
+import { DiceLayout } from '../module/dice/DiceLayout';
 
 export class HomeScreen extends React.Component {
   handlePress = () => {
@@ -10,7 +11,7 @@ export class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <DiceWidget/>
+        <DiceLayout/>
       </View>
     );
   }

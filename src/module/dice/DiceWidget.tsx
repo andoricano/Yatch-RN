@@ -1,30 +1,30 @@
 import React from 'react';
-import { View, Button, StyleSheet, ImageSourcePropType } from 'react-native';
-import { DiceManager } from './DiceManager';
-import { Dice } from './Dice';
-import { BehaviorSubject, Subscription } from 'rxjs';
+import { View, Image, StyleSheet, ImageSourcePropType } from 'react-native'; import { DiceManager } from './DiceManager';
+import { Subscription } from 'rxjs';
 
 
-const diceFaces: ImageSourcePropType[] = [
-    require('../../../rsc/dice_1.png'),
-    require('../../../rsc/dice_2.png'),
-    require('../../../rsc/dice_3.png'),
-    require('../../../rsc/dice_4.png'),
-    require('../../../rsc/dice_5.png'),
-    require('../../../rsc/dice_6.png'),
-];
+interface DiceWidgetProps {
+    diceManager: DiceManager;
+    backgroundColor?: string;
+}
 
-const initialDice: Dice[] = Array.from({ length: 5 }, () => ({
-    faces: diceFaces,
-    current: 1,
-}));
 
-export class DiceWidget extends React.Component {
-    diceManager = new DiceManager(initialDice);
+export class DiceWidget extends React.Component<DiceWidgetProps> {
+    diceManager: DiceManager;
+
     subscription!: Subscription;
 
+    constructor(props: DiceWidgetProps) {
+        super(props);
+        this.diceManager = props.diceManager;
+    }
+    state = {
+        dice: this.props.diceManager.dice,
+    };
+
     componentDidMount() {
-        this.subscription = this.diceManager.dice$.subscribe(dice => {
+        this.subscription = this.props.diceManager.dice$.subscribe(dice => {
+            this.setState({ dice });
             console.log('Dice 상태 변경:', dice.map(d => d.current));
         });
     }
@@ -35,15 +35,23 @@ export class DiceWidget extends React.Component {
 
 
     handlePress = () => {
-        this.diceManager.startRolling()
+        this.diceManager.startRolling();
     };
 
 
-
     render() {
+        const { backgroundColor = '#f0f0f0' } = this.props;
+        const { dice } = this.state;
+
         return (
-            <View style={styles.container}>
-                <Button title="DiceTest" onPress={this.handlePress} />
+            <View style={[styles.container, { backgroundColor }]}>
+                {dice.map((d, idx) => (
+                    <Image
+                        key={idx}
+                        source={d.faces[d.current - 1]}
+                        style={styles.diceImage}
+                    />
+                ))}
             </View>
         );
     }
@@ -51,8 +59,13 @@ export class DiceWidget extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    diceImage: {
+        width: 50,
+        height: 50,
+        marginHorizontal: 5,
     },
 });
