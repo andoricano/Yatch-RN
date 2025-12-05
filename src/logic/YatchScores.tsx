@@ -43,18 +43,21 @@ function getFullHouse(dice: number[]) {
 }
 
 function getStraight(dice: number[]) {
-    const set = new Set(dice);
+    const sorted = [...dice].sort((a, b) => a - b);
 
-    const patterns = [
-        [1,2,3,4,5],
-        [2,3,4,5,6],
-    ];
+    let cnt = 1;
 
-    for (const p of patterns) {
-        if (p.every(n => set.has(n))) {
-            return 30;
+    for (let i = 1; i < sorted.length; i++) {
+        if (sorted[i] === sorted[i - 1] + 1) {
+            cnt++;
+        } else if (sorted[i] === sorted[i - 1]) {
+            continue;
+        } else {
+            cnt = 1; 
         }
     }
 
+    if (cnt >= 5) return 30; 
+    if (cnt >= 4) return 15; 
     return 0;
 }
