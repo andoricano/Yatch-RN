@@ -5,6 +5,7 @@ export type Board = {
   fours: number;
   fives: number;
   sixes: number;
+  bonus: number;
 
   fullHouse: number;
   fourKind: number;
@@ -21,6 +22,7 @@ export const initialBoard: Board = {
   fours: 0,
   fives: 0,
   sixes: 0,
+  bonus: 0,
   fullHouse: 0,
   fourKind: 0,
   smallStraight: 0,
