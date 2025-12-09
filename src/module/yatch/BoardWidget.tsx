@@ -9,6 +9,22 @@ interface boardWidgetProps {
     backgroundColor?: string;
 }
 
+const BoardItemImage =[
+    require('./rsc/dice1.png'),
+    require('./rsc/dice2.png'),
+    require('./rsc/dice3.png'),
+    require('./rsc/dice4.png'),
+    require('./rsc/dice5.png'),
+    require('./rsc/dice6.png'),
+
+    require('../../../rsc/dice_1.png'),
+    require('../../../rsc/dice_2.png'),
+    require('../../../rsc/dice_3.png'),
+    require('../../../rsc/dice_4.png'),
+    require('../../../rsc/dice_5.png'),
+    require('../../../rsc/dice_6.png'),
+    require('../../../rsc/dice_1.png')
+]
 
 export class BoardWidget extends React.Component<boardWidgetProps> {
     boardManager: BoardManager;
@@ -40,16 +56,16 @@ export class BoardWidget extends React.Component<boardWidgetProps> {
 
         return (
             <View style={[styles.container, { backgroundColor }]}>
-                {Object.entries(board).map(([key, value], index) => (
+                {Object.entries(board).map(([key, value], idx) => (
                     <View
                         key={key}
                         style={[
                             styles.itemBox,
-                            index < 6 ? styles.halfWidth : styles.fullWidth,
+                            idx < 6 ? styles.halfWidth : styles.fullWidth,
                         ]}
                     >
                         <Image
-                            source={require('../../../rsc/dice_1.png')}
+                            source={BoardItemImage[idx]}
                             style={styles.img}
                         />
                         <Text style={styles.name}>{key}</Text>
