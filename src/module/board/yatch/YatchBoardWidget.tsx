@@ -4,12 +4,12 @@ import { Subscription } from 'rxjs';
 import { YatchBoardManager } from './YatchBoardManager';
 
 
-interface boardWidgetProps {
+interface YatchBoardWidgetProps {
     boardManager: YatchBoardManager;
     backgroundColor?: string;
 }
 
-const BoardItemImage =[
+const YatchBoardItemImage =[
     require('./rsc/dice1.png'),
     require('./rsc/dice2.png'),
     require('./rsc/dice3.png'),
@@ -17,20 +17,20 @@ const BoardItemImage =[
     require('./rsc/dice5.png'),
     require('./rsc/dice6.png'),
 
-    require('../../../rsc/dice_1.png'),
-    require('../../../rsc/dice_2.png'),
-    require('../../../rsc/dice_3.png'),
-    require('../../../rsc/dice_4.png'),
-    require('../../../rsc/dice_5.png'),
-    require('../../../rsc/dice_6.png'),
-    require('../../../rsc/dice_1.png')
+    require('../../../../rsc/dice_1.png'),
+    require('../../../../rsc/dice_2.png'),
+    require('../../../../rsc/dice_3.png'),
+    require('../../../../rsc/dice_4.png'),
+    require('../../../../rsc/dice_5.png'),
+    require('../../../../rsc/dice_6.png'),
+    require('../../../../rsc/dice_1.png'),
 ]
 
-export class BoardWidget extends React.Component<boardWidgetProps> {
+export class YatchBoardWidget extends React.Component<YatchBoardWidgetProps> {
     boardManager: YatchBoardManager;
     subscription!: Subscription;
 
-    constructor(props: boardWidgetProps) {
+    constructor(props: YatchBoardWidgetProps) {
         super(props);
         this.boardManager = props.boardManager;
     }
@@ -65,7 +65,7 @@ export class BoardWidget extends React.Component<boardWidgetProps> {
                         ]}
                     >
                         <Image
-                            source={BoardItemImage[idx]}
+                            source={YatchBoardItemImage[idx]}
                             style={styles.img}
                         />
                         <Text style={styles.name}>{key}</Text>

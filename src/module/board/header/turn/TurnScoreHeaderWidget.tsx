@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
 
 interface TurnScoreHedaerProps {
-    userQueue: Array<User>,
+    userQueue: User[],
     pointerCallback: (pointer: number) => void;
 }
 

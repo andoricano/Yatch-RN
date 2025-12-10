@@ -1,10 +1,8 @@
 import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
-import { DiceWidget } from '../module/dice/DiceWidget';
-import { DiceLayout } from '../module/dice/DiceLayout';
-import { BoardWidget } from '../module/board/yatch/BoardWidget';
 import { initialBoard } from '../module/board/yatch/YatchBoard';
 import { YatchBoardManager } from '../module/board/yatch/YatchBoardManager';
+import { YatchBoardLayout } from '../module/board/yatch/YatchBoardLayout';
 
 export class HomeScreen extends React.Component {
   handlePress = () => {
@@ -15,8 +13,7 @@ export class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <BoardWidget boardManager={this.boardManager} />
-        {/* <DiceLayout width='90%' height='20%' oneLine = {false} /> */}
+        <YatchBoardLayout boardManager={this.boardManager}/>
       </View>
     );
   }
@@ -27,8 +24,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',  
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000000'
+    backgroundColor: '#853535ff'
   },
 });
