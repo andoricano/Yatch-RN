@@ -1,4 +1,4 @@
-export type Board = {
+export type YatchBoard = {
   ones: number;
   twos: number;
   threes: number;
@@ -15,7 +15,7 @@ export type Board = {
   choice: number;
 };
 
-export const initialBoard: Board = {
+export const initialBoard: YatchBoard = {
   ones: 0,
   twos: 0,
   threes: 0,

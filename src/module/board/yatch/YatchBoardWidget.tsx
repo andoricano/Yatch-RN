@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 import { Subscription } from 'rxjs';
-import { BoardManager } from './BoardManager';
+import { YatchBoardManager } from './YatchBoardManager';
 
 
 interface boardWidgetProps {
-    boardManager: BoardManager;
+    boardManager: YatchBoardManager;
     backgroundColor?: string;
 }
 
@@ -27,7 +27,7 @@ const BoardItemImage =[
 ]
 
 export class BoardWidget extends React.Component<boardWidgetProps> {
-    boardManager: BoardManager;
+    boardManager: YatchBoardManager;
     subscription!: Subscription;
 
     constructor(props: boardWidgetProps) {

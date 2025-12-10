@@ -1,11 +1,11 @@
-import { Board } from './Board';
+import { YatchBoard } from './YatchBoard';
 import { BehaviorSubject } from 'rxjs';
 
 
-class BoardManager {
-    private boardSubject: BehaviorSubject<Board>;
+class YatchBoardManager {
+    private boardSubject: BehaviorSubject<YatchBoard>;
 
-    constructor(board: Board) {
+    constructor(board: YatchBoard) {
         this.boardSubject = new BehaviorSubject(board);
     }
 
@@ -18,15 +18,15 @@ class BoardManager {
     }
 
 
-    set board(newBoard: Board) {
+    set board(newBoard: YatchBoard) {
         this.boardSubject.next(newBoard);
     }
 
-    update(key: keyof Board, value: number) {
+    update(key: keyof YatchBoard, value: number) {
         const updated = { ...this.board, [key]: value };
         this.boardSubject.next(updated);
     }
 
 }
 
-export { BoardManager };
+export { YatchBoardManager };

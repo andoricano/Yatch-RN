@@ -2,15 +2,15 @@ import React from 'react';
 import { View, Button, StyleSheet } from 'react-native';
 import { DiceWidget } from '../module/dice/DiceWidget';
 import { DiceLayout } from '../module/dice/DiceLayout';
-import { BoardWidget } from '../module/yatch/BoardWidget';
-import { initialBoard } from '../module/yatch/Board';
-import { BoardManager } from '../module/yatch/BoardManager';
+import { BoardWidget } from '../module/board/yatch/BoardWidget';
+import { initialBoard } from '../module/board/yatch/YatchBoard';
+import { YatchBoardManager } from '../module/board/yatch/YatchBoardManager';
 
 export class HomeScreen extends React.Component {
   handlePress = () => {
     console.log('버튼 눌림!');
   };
-  boardManager = new BoardManager(initialBoard);
+  boardManager = new YatchBoardManager(initialBoard);
 
   render() {
     return (
