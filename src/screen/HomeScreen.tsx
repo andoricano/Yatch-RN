@@ -16,8 +16,8 @@ export class HomeScreen extends React.Component<any> {
     return (
       <View style={styles.container}>
         <View style={styles.buttonBox}>
-          <Button title="Game" onPress={() => navigation.navigate('Game')} />
-          <Button title="Setting" onPress={() => navigation.navigate('Setting')} />
+          <Button title="Game" onPress={() => navigation.navigate('GameSetting')} />
+          <Button title="Setting" onPress={() => navigation.navigate('AppSetting')} />
           <Button title="History" onPress={() => navigation.navigate('History')} />
         </View>
       </View>
