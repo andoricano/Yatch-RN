@@ -1,5 +1,6 @@
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { DiceManager } from '../module/dice/DiceManager';
+import { YatchBoard } from '../module/board/yatch/YatchBoard';
 
 
 class YatchManager {
@@ -20,8 +21,27 @@ class YatchManager {
         this.diceManager.startRolling();
     }
 
-    setDice(idx : number, value : number) {
+    setDice(idx: number, value: number) {
         this.diceManager.setDice(idx, value);
+    }
+
+
+    getAllScore(dice: number[]): YatchBoard {
+        return {
+            ones: getScoreNumber(dice,1),
+            twos: getScoreNumber(dice,2),
+            threes: getScoreNumber(dice,3),
+            fours: getScoreNumber(dice,4),
+            fives: getScoreNumber(dice,5),
+            sixes: getScoreNumber(dice,6),
+            bonus: 0,
+            fullHouse: getFullHouse(dice),
+            fourKind: getMultiple(dice,4),
+            smallStraight: getStraight(dice),
+            largeStraight: getStraight(dice),
+            yacht: getMultiple(dice,5),
+            choice: dice.reduce((acc, cur) => acc + cur, 0),
+        };
     }
 }
 

@@ -1,23 +1,20 @@
 //Triple, 4 of a kind, Yatch
-function getMultiple(dice: number[], countNeeded: number) {
+function getMultiple(dice: number[], countNeeded: number): number {
     const count: Record<number, number> = {};
 
     for (const d of dice) {
         count[d] = (count[d] || 0) + 1;
     }
 
-    const result: number[] = [];
+    const targetKey = Object.keys(count).find(key => count[Number(key)] >= countNeeded);
 
-    for (const key in count) {
-        if (count[key] >= countNeeded) {
-            result.push(Number(key) * countNeeded);
-        }
+    if (!targetKey) return 0;
+
+    if (countNeeded === 5) {
+        return 50; 
     }
 
-    if(countNeeded == 5)
-        return 150;
-
-    return result;
+    return Number(targetKey) * countNeeded;
 }
 
 //Aces, Deuces, Threes, Fours, Fives, Sixes
