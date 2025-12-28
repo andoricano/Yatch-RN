@@ -3,6 +3,7 @@ import { View, Button, StyleSheet } from 'react-native';
 import { initialBoard } from '../module/board/yatch/YatchBoard';
 import { YatchBoardManager } from '../module/board/yatch/YatchBoardManager';
 import { YatchBoardLayout } from '../module/board/yatch/YatchBoardLayout';
+import { AddList } from '../module/list/AddList';
 
 export class GameSettingScreen extends React.Component {
   handlePress = () => {
@@ -13,7 +14,12 @@ export class GameSettingScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <YatchBoardLayout boardManager={this.boardManager}/>
+        <AddList 
+          baseList={["num1","num2"]}
+          onListChange={() =>{
+
+          }}
+        />
       </View>
     );
   }
