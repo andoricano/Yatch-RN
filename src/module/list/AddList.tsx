@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity, Text, FlatList } from 'react-native';
-import { InputTwoButtonItem } from './item/InputTwoButtonItem';
+import { BasicYatchUserItem } from './item/BasicYatchUserItem';
 
 interface AddListProps {
     baseList: string[];
@@ -26,10 +26,10 @@ export class AddList extends React.Component<AddListProps> {
                     data={this.props.baseList}
                     keyExtractor={(_, index) => index.toString()}
                     renderItem={({ item }) => (
-                        <InputTwoButtonItem 
-                            firstScheme='이름'
+                        <BasicYatchUserItem 
                             initialInput={item}
                             onInputChange={()=>{}}
+                            onButtonPress={()=>{}}
                         />
                     )}
                     contentContainerStyle={styles.listContent}
