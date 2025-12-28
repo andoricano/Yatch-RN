@@ -7,12 +7,13 @@ export type YatchBoard = {
   sixes: number;
   bonus: number;
 
+  choice: number;
+
   fullHouse: number;
   fourKind: number;
   smallStraight: number;
   largeStraight: number;
   yacht: number;
-  choice: number;
 };
 
 export const initialBoard: YatchBoard = {
@@ -23,10 +24,12 @@ export const initialBoard: YatchBoard = {
   fives: 0,
   sixes: 0,
   bonus: 0,
-  fullHouse: 0,
+
+  choice: 0,
+
   fourKind: 0,
+  fullHouse: 0,
   smallStraight: 0,
   largeStraight: 0,
   yacht: 0,
-  choice: 0,
 };

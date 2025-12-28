@@ -17,13 +17,14 @@ const YatchBoardItemImage =[
     require('./rsc/dice5.png'),
     require('./rsc/dice6.png'),
 
-    require('../../../../rsc/dice1.png'),
-    require('../../../../rsc/dice2.png'),
-    require('../../../../rsc/dice3.png'),
-    require('../../../../rsc/dice4.png'),
-    require('../../../../rsc/dice5.png'),
-    require('../../../../rsc/dice6.png'),
-    require('../../../../rsc/dice1.png'),
+
+    require('./rsc/yatch_bonus.png'),
+    require('./rsc/yatch_choice.png'),
+    require('./rsc/yatch_four.png'),
+    require('./rsc/yatch_full.png'),
+    require('./rsc/yatch_ss.png'),
+    require('./rsc/yatch_ls.png'),
+    require('./rsc/yatch_god.png'),
 ]
 
 export class YatchBoardWidget extends React.Component<YatchBoardWidgetProps> {
